@@ -28,6 +28,15 @@ Route::get('/', function () {
 
 Route::inertia('/write', 'WriteWorry')->name('writeworry');
 
+Route::inertia('/writeresolution', 'WriteResolution')->name('writeresolution');
+
+Route::post('/createWorry', 'WorryController@store')->name('worry.store');
+
+Route::post('/createResolution', 'ResolutionController@store')->name('resolution.store');
+
+Route::get('/getworryresolution', 'ResolutionController@worryResolution')->name('resolution.worryresolution');
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');

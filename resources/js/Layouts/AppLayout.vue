@@ -4,7 +4,7 @@
 
         <jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-white-100">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,6 +25,10 @@
 
                                  <jet-nav-link :href="route('writeworry')" :active="route().current('writeworry')">
                                     나의 걱정 쓰기
+                                </jet-nav-link>
+
+                                <jet-nav-link :href="route('writeresolution')" :active="route().current('writeresolution')">
+                                  희망글쓰기
                                 </jet-nav-link>
                             </div>
                         </div>
@@ -224,7 +228,7 @@
 
             <!-- Page Heading -->
             <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 font-weight:900">
                     <slot name="header"></slot>
                 </div>
             </header>
@@ -281,6 +285,6 @@
             logout() {
                 this.$inertia.post(route('logout'));
             },
-        }
+        },
     })
 </script>

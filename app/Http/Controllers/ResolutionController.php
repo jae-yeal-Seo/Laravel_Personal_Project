@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Worry;
-use App\Models\WorryHashTag;
+use App\Models\Resolution;
+use App\Models\ResolutionHashTag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use Inertia\Inertia;
 
-class WorryController extends Controller
+class ResolutionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,13 +19,33 @@ class WorryController extends Controller
         //
     }
 
+    public function worryResolution(Request $request)
+    {
+        $hashtag = $request->finalHashTags;
+
+        $outs = new \Symfony\Component\Console\Output\ConsoleOutput();
+        $outs->write(gettype($hashtag));
+
+
+        // for ($i = 0; $i < $length; $i++) {
+        //     $ResolutionHashTag = new ResolutionHashTag();
+        //     $ResolutionHashTag->resolution_id = $resolutions->id;
+        //     $ResolutionHashTag->hashtag = implode('', $ResolutionHashTagsArray[$i]);
+        //     $ResolutionHashTag->save();
+        // }
+
+
+        return '사람';
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
+        //
     }
 
     /**
@@ -42,33 +59,33 @@ class WorryController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            "worryHashTags" => "required|array",
+            "ResolutionHashTags" => "required|array",
         ]);
 
-        $worries = new Worry();
-        $worries->title = $request->title;
-        $worries->content = $request->content;
-        $worries->user_id = Auth::user()->id;
-        $worries->save();
+        $resolutions = new Resolution();
+        $resolutions->title = $request->title;
+        $resolutions->content = $request->content;
+        $resolutions->user_id = Auth::user()->id;
+        $resolutions->save();
 
 
-        $worryHashTagsArray = $request->worryHashTags;
+        $ResolutionHashTagsArray = $request->ResolutionHashTags;
 
-        $length = count($request->worryHashTags);
+        $length = count($request->ResolutionHashTags);
 
         // $out = new \Symfony\Component\Console\Output\ConsoleOutput();
-        // $out->write($length);
+        // $out->write($request->title);
 
 
         for ($i = 0; $i < $length; $i++) {
-            $worryHashTag = new WorryHashTag();
-            $worryHashTag->worry_id = $worries->id;
-            $worryHashTag->hashtag = implode('', $worryHashTagsArray[$i]);
-            $worryHashTag->save();
+            $ResolutionHashTag = new ResolutionHashTag();
+            $ResolutionHashTag->resolution_id = $resolutions->id;
+            $ResolutionHashTag->hashtag = implode('', $ResolutionHashTagsArray[$i]);
+            $ResolutionHashTag->save();
         }
 
 
-        return redirect()->route('writeworry');
+        return redirect()->route('writeresolution');
     }
 
     /**
