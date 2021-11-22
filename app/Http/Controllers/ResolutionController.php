@@ -21,10 +21,15 @@ class ResolutionController extends Controller
 
     public function worryResolution(Request $request)
     {
+
+        $request->validate([
+            "finalHashTags" => "required|array",
+        ]);
+
         $hashtag = $request->finalHashTags;
 
         $outs = new \Symfony\Component\Console\Output\ConsoleOutput();
-        $outs->write(gettype($hashtag));
+        $outs->writeln(gettype($hashtag));
 
 
         // for ($i = 0; $i < $length; $i++) {

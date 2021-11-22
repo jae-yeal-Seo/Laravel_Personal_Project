@@ -17988,13 +17988,6 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         return alert(err);
       });
-      axios.get('/getworryresolution', {
-        finalHashTags: this.finalHashTags
-      }).then(function (res) {
-        return console.log(res);
-      })["catch"](function (err) {
-        return console.log(err);
-      });
     },
     submitMyWorry: function submitMyWorry(myworry) {
       this.finalTitle = myworry.title;
