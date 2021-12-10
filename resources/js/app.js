@@ -8,7 +8,6 @@ import MyWorry from '@/Pages/MyWorry';
 
 
 const emitter = mitt();
-// app.config.globalProperties.emitter = emitter;
 
 
 

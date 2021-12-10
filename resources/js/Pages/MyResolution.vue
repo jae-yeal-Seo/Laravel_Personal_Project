@@ -19,7 +19,7 @@
                 v-model="title"
                 id="inline-full-name"
                 type="text"
-                placeholder="내용적기"
+                placeholder="제목적기"
             />
         </div>
         <label for="about" class="block text-sm font-black"> 희망적기 </label>
@@ -48,6 +48,10 @@
     </div>
 </template>
 <script>
+import Swal from 'sweetalert2'
+             
+
+
 export default {
     data() {
         return {
@@ -61,9 +65,15 @@ export default {
                 title : this.title,
                 content : this.content,
             });
+                   Swal.fire({
+            title: "도움!",
+            text: "도움되셨습니다!",
+            icon : "success"
+        });
         },
     },
     mounted() {
+        
       this.emitter.on("submitResolution", ()=> this.submitMyResolution());
     },
 };

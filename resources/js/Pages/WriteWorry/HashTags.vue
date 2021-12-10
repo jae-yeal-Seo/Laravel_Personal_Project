@@ -1,6 +1,6 @@
 <template>
 <div>
-<p style="font-size:15px" class="font-black">걱정키워드적기</p>
+<p style="font-size:15px" class="font-black">고민키워드적기</p>
   <div class="comp_hashtag" @click="setHashtags" ref="group">
     <p class="help" v-if="helpVisible">{{ defaultPlaceholder }}</p>
 
@@ -57,7 +57,7 @@ export default {
     return {
       defaultPlaceholder: this.placeholder
         ? this.placeholder
-        : "#걱정키워드 #특수문자제외",
+        : "#고민키워드 #특수문자제외",
       errorMsg: null,
       focusIndex: null,
       helpVisible: true,

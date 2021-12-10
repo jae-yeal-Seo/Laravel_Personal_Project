@@ -6,6 +6,7 @@ use App\Models\Resolution;
 use App\Models\ResolutionHashTag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class ResolutionController extends Controller
 {
@@ -99,9 +100,12 @@ class ResolutionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $resolution = Resolution::where('id', $id)->with('users')->get();
+        $hashtags = ResolutionHashTag::where('resolution_id', $id)->get();
+
+        return Inertia::render('ResolutionShow', ['resolution' => $resolution, 'hashtags' => $hashtags]);
     }
 
     /**
@@ -136,5 +140,12 @@ class ResolutionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function worryresolutionHashTags($id)
+    {
+        $tags = ResolutionHashTag::where('resolution_id', $id)->get();
+
+        return $tags;
     }
 }

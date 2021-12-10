@@ -8,7 +8,7 @@
 
 
         <div class="py-12">
-            <div class="w-3/5 mx-auto sm:px-6 lg:px-8">
+            <div class="w-4/5 mx-auto sm:px-6 lg:px-8">
              <div>
                 
                      <resolution-hash-tags @submitResolutionHashTags="submitResolutionHashTags" ></resolution-hash-tags>

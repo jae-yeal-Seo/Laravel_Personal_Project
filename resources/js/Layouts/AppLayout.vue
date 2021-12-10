@@ -19,12 +19,14 @@
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    대시보드
+                               
+                                
+                                <jet-nav-link :href="route('feelingrealgraph')" :active="route().current('feelingrealgraph')">
+                                    나의 감정흐름
                                 </jet-nav-link>
 
                                  <jet-nav-link :href="route('writeworry')" :active="route().current('writeworry')">
-                                    나의 걱정 쓰기
+                                    나의 고민 쓰기
                                 </jet-nav-link>
 
                                 <jet-nav-link :href="route('writeresolution')" :active="route().current('writeresolution')">

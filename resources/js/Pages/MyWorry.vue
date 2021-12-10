@@ -1,6 +1,6 @@
 <template>
     <div class="h-full">
-        <label for="about" class="block text-sm font-black"> 걱정제목 </label>
+        <label for="about" class="block text-sm font-black"> 고민제목 </label>
         <div class="md:w-full">
             <input
                 class="
@@ -19,10 +19,10 @@
                 v-model="title"
                 id="inline-full-name"
                 type="text"
-                placeholder="걱정제목"
+                placeholder="고민제목"
             />
         </div>
-        <label for="about" class="block text-sm font-black">걱정적기 </label>
+        <label for="about" class="block text-sm font-black">고민적기 </label>
         <div class="mt-1">
             <textarea
                 v-model="content"
@@ -42,7 +42,7 @@
                     border border-gray-300
                     rounded-md
                 "
-                placeholder="걱정을 자유롭게 적어보세요"
+                placeholder="고민을 자유롭게 적어보세요"
             ></textarea>
         </div>
     </div>

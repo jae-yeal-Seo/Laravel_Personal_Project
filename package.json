@@ -35,9 +35,13 @@
     "dependencies": {
         "@vue/composition-api": "^1.4.0",
         "bootstrap-vue": "^2.21.2",
+        "chart.js": "^3.6.2",
+        "crypto-js": "^4.1.1",
         "for": "^0.1.0",
         "me": "^0.3.0",
         "mitt": "^3.0.0",
+        "vue-sweetalert2": "^5.0.2",
+        "vue3-carousel": "^0.1.32",
         "worked": "0.0.2"
     }
 }
